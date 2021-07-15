@@ -9,6 +9,9 @@ namespace BookContactControl.Domain.Services
         Contact Get(string email);
         void Register(string email, string name, string phone);
         void ChangeInformation(string email, string name, string phone);
+
+        Contact AuthenticateConsumer(string id);
+
         List<Contact> GetByRange(int skip, int take);
     }
 }

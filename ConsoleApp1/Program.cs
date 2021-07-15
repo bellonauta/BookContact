@@ -1,45 +1,41 @@
-﻿using BookContactControl.Domain.Models;
-using BookContactControl.Domain.Repositories;
-using BookContactControl.Infraestructure.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System;
+using BookContactControl.Domain.Services;
+using BookContactControl.Startup;
+using Microsoft.Practices.Unity;
 
-namespace ConsoleApp1
+
+namespace BookContactControl.Executable
+    
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var contact = new Contact("wilson@gmail.com", "Wilson Angeli", "(46)99927-3580");
 
-            var found = false;
+            // Testes de consumo...
 
-            using (IContactRepository contactRep = new ContactRepository())
+            // Resolve as dependências para um container de trabalho...
+            var container = new UnityContainer();
+            DependencyResolver.Resolve(container);
+
+            // Pega a implementação dos serviços do domínio...
+            var service = container.Resolve<IContactService>();
+
+            try
             {
-                found = contactRep.Get(contact.Email) != null;
+                // Tenta cadastrar um contato...
+                service.Register("wilson2@gmail.com", "Wilson2 Angeli", "(46)99927-3580");
+                Console.WriteLine("Contato cadastrado com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                service.Dispose();
             }
 
-   
-            if (!found)
-            {
-                using (IContactRepository contactRep = new ContactRepository())
-                {
-                    contactRep.Create(contact);
-                }
-            }
-
-            using (IContactRepository contactRep = new ContactRepository())
-            {
-                var cnt = contactRep.Get("wilson@gmail.com");
-                Console.WriteLine(cnt.Name);
-            }
-
-            using (IContactRepository contactRep = new ContactRepository())
-            {
-                contactRep.Delete(contact);
-            }
 
             Console.ReadKey();
             

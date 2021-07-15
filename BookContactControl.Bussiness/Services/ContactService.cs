@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 
 
-namespace BookContactControl.Bussiness.Services
+namespace BookContactControl.Business.Services
 {
     public class ContactService : IContactService
     {
@@ -15,6 +15,29 @@ namespace BookContactControl.Bussiness.Services
         public ContactService(IContactRepository repository)
         {
             _repository = repository;
+        }
+
+        public Contact AuthenticateConsumer(string id)
+        // Autentica o cliente consumidor do serviço/API.
+        // Essa autenticação pode estar nos serviços do domínio de autenticação do serviço/API. Foi
+        // Mantida aqui para facilitar os testes.
+        // "id", nessa implementação, deve ser o email do cliente consumidor.
+        {
+            var contact = Get(id); // Como está usando a mesma tabela para contatos e consumidores, utiliza o mesmo método Get().
+
+            if (contact == null)
+            {
+                // Em produção, quando o consumer não existir, um erro deve ser retornado.
+
+                // Em desenvolvimento/testes, cadastra o consumer para permitir a continuidade...
+                Register(id, id, "(41)99345-1234");
+                contact = Get(id); //Atualiza a instância
+            }
+
+            if (contact == null)
+               throw new InvalidOperationException("Cliente não cadastrado.");
+
+            return contact;
         }
 
         public void ChangeInformation(string email, string name, string phone)
@@ -35,9 +58,6 @@ namespace BookContactControl.Bussiness.Services
         public Contact Get(string email)
         {
             var contact = _repository.Get(email);
-            if (contact == null)
-               throw new InvalidOperationException("Contato não cadastrado.");
-
             return contact;
         }
 
@@ -64,5 +84,4 @@ namespace BookContactControl.Bussiness.Services
         }
 
     }
-}
 }

@@ -9,12 +9,12 @@ namespace BookContactControl.Infraestructure.Repositories
 {
     public class ContactRepository : IContactRepository
     {
-        private AppDataContext _context = new AppDataContext();
+        private AppDataContext _context; // = new AppDataContext();
 
-        /*public ContactRepository(AppDataContext context)
+        public ContactRepository(AppDataContext context)
         {
             _context = context;
-        }*/
+        }
 
         public Contact Get(string email)
         {

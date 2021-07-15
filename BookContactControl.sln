@@ -9,11 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookContactControl.Common",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookContactControl.Infraestructure", "BookContactControl.Infraestructure\BookContactControl.Infraestructure.csproj", "{90B76A81-8270-48A6-973C-658CA3433ED7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{C3F78190-876C-4F1C-84F6-E0F62B9D2B1E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookContactControl.Executable", "ConsoleApp1\BookContactControl.Executable.csproj", "{C3F78190-876C-4F1C-84F6-E0F62B9D2B1E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookContactControl.Startup", "BookContactControl.Startup\BookContactControl.Startup.csproj", "{CF9AF988-B0C6-49CF-AF4C-07BA7E5F198D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookContactControl.Bussiness", "BookContactControl.Bussiness\BookContactControl.Bussiness.csproj", "{42E00FE8-C283-4B53-A388-933E534C54FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookContactControl.Business", "BookContactControl.Bussiness\BookContactControl.Business.csproj", "{42E00FE8-C283-4B53-A388-933E534C54FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookContactControl.Api", "BookContactControl.Api\BookContactControl.Api.csproj", "{31CF10CD-2266-4479-9E21-B2FF94D0D6C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{42E00FE8-C283-4B53-A388-933E534C54FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42E00FE8-C283-4B53-A388-933E534C54FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42E00FE8-C283-4B53-A388-933E534C54FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31CF10CD-2266-4479-9E21-B2FF94D0D6C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31CF10CD-2266-4479-9E21-B2FF94D0D6C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31CF10CD-2266-4479-9E21-B2FF94D0D6C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31CF10CD-2266-4479-9E21-B2FF94D0D6C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

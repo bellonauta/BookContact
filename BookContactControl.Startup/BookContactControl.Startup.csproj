@@ -50,6 +50,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BookContactControl.Bussiness\BookContactControl.Business.csproj">
+      <Project>{42e00fe8-c283-4b53-a388-933e534c54fa}</Project>
+      <Name>BookContactControl.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BookContactControl.Domain\BookContactControl.Domain.csproj">
       <Project>{bf89d931-48dc-4204-a7bf-da1da03869ca}</Project>
       <Name>BookContactControl.Domain</Name>

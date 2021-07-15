@@ -41,6 +41,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net40\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cquential.Microsoft.Practices.Unity.2.0.414\lib\net35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -66,6 +69,10 @@
     <ProjectReference Include="..\BookContactControl.Infraestructure\BookContactControl.Infraestructure.csproj">
       <Project>{90B76A81-8270-48A6-973C-658CA3433ED7}</Project>
       <Name>BookContactControl.Infraestructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BookContactControl.Startup\BookContactControl.Startup.csproj">
+      <Project>{cf9af988-b0c6-49cf-af4c-07ba7e5f198d}</Project>
+      <Name>BookContactControl.Startup</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -2,10 +2,11 @@
 using BookContactControl.Domain.Models;
 using BookContactControl.Infraestructure.Data;
 using BookContactControl.Infraestructure.Repositories;
-using BookContactControl.Domain.Services;
+using BookContactControl.Business.Services;
 using Microsoft.Practices.Unity;
+using BookContactControl.Domain.Services;
 
-namespace SpaUserControl.Startup
+namespace BookContactControl.Startup
 {
     public static class DependencyResolver
     {
@@ -14,7 +15,7 @@ namespace SpaUserControl.Startup
             //Contrato(Interface) X Implementação
             container.RegisterType<AppDataContext, AppDataContext>(new HierarchicalLifetimeManager());
             container.RegisterType<IContactRepository, ContactRepository>(new HierarchicalLifetimeManager());
-            //container.RegisterType<IContactService, ContactService>(new HierarchicalLifetimeManager());
+            container.RegisterType<IContactService, ContactService>(new HierarchicalLifetimeManager());
 
             container.RegisterType<Contact, Contact>(new HierarchicalLifetimeManager());
         }
