@@ -21,9 +21,9 @@ namespace BookContactControl.Api.Controllers
             _service = service;
         }
 
-        // api/contact - Post(Insert) (Content-Type: application/json)
-        [Route("")]
-        [HttpPost]
+        // api/contact/insert - Put(Insert) (Content-Type: application/json)
+        [Route("insert")]
+        [HttpPut]
         public Task<HttpResponseMessage> Register(RegisterContactModel model) 
         {
             HttpResponseMessage response = new HttpResponseMessage();
@@ -35,7 +35,7 @@ namespace BookContactControl.Api.Controllers
             }
             catch (Exception ex)
             {
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, "*** " + ex.Message);
             }
 
             var tsc = new TaskCompletionSource<HttpResponseMessage>();
@@ -43,9 +43,9 @@ namespace BookContactControl.Api.Controllers
             return tsc.Task;
         }
 
-        // api/contact - Put(Update) (Content-Type: application/json)
-        [Route("")]
-        [HttpPut]
+        // api/contact/update - Post(Update) (Content-Type: application/json)
+        [Route("update")]
+        [HttpPost]
         [Authorize]
         public Task<HttpResponseMessage> Update(RegisterContactModel model)
         {
@@ -65,6 +65,31 @@ namespace BookContactControl.Api.Controllers
             tsc.SetResult(response);
             return tsc.Task;
         }
+
+
+        // api/contact/list - Get(List) (Content-Type: application/json)
+        [Route("list")]
+        [HttpGet]
+        [Authorize]
+        public Task<HttpResponseMessage> List(RegisterContactModel model)
+        {
+            HttpResponseMessage response = new HttpResponseMessage();
+
+            try
+            {
+                _service.ChangeInformation(model.Email, model.Name, model.Phone);
+                response = Request.CreateResponse(HttpStatusCode.OK, new { name = model.Name, phone = model.Phone });
+            }
+            catch (Exception ex)
+            {
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+
+            var tsc = new TaskCompletionSource<HttpResponseMessage>();
+            tsc.SetResult(response);
+            return tsc.Task;
+        }
+
 
         protected override void Dispose(bool disposing)
         {
