@@ -21,9 +21,8 @@ namespace BookContactControl.Infraestructure.Repositories
             return _context.Contacts.Where(x => x.Email == email.ToLower().Trim().Replace(" ", "")).FirstOrDefault();
         }
 
-        public List<Contact> GetContacts(int offset, int limit)
-        {
-            throw new NotImplementedException();
+        public List<Contact> GetContacts(int skip, int take) { 
+            return _context.Contacts.OrderBy(x => x.Email).Skip(skip).Take(take).ToList();
         }
 
         public void Create(Contact contact)

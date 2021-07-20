@@ -24,8 +24,11 @@ namespace BookContactControl.Executable
             try
             {
                 // Tenta cadastrar um contato...
-                service.Register("wilson2@gmail.com", "Wilson2 Angeli", "(46)99927-3580");
-                Console.WriteLine("Contato cadastrado com sucesso!");
+                //service.Register("wilson2@gmail.com", "Wilson2 Angeli", "(46)99927-3580");
+                //Console.WriteLine("Contato cadastrado com sucesso!");
+
+                var contacts = service.GetContacts(0, 10);
+                Console.WriteLine(contacts.Count.ToString()+" contatos cadastrados.");
             }
             catch (Exception ex)
             {

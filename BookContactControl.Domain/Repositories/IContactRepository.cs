@@ -10,6 +10,6 @@ namespace BookContactControl.Domain.Repositories
         void Create(Contact contact);
         void Update(Contact contact);
         void Delete(Contact contact);
-        List<Contact> GetContacts(int offset, int limit);
+        List<Contact> GetContacts(int skip, int take);
     }
 }

@@ -69,16 +69,23 @@ namespace BookContactControl.Api.Controllers
 
         // api/contact/list - Get(List) (Content-Type: application/json)
         [Route("list")]
-        [HttpGet]
-        [Authorize]
-        public Task<HttpResponseMessage> List(RegisterContactModel model)
+        [HttpPost]
+        //[Authorize]
+        public Task<HttpResponseMessage> GetContacts(RegisterContactModel model)
         {
             HttpResponseMessage response = new HttpResponseMessage();
 
             try
             {
-                _service.ChangeInformation(model.Email, model.Name, model.Phone);
-                response = Request.CreateResponse(HttpStatusCode.OK, new { name = model.Name, phone = model.Phone });
+                var contacts =  _service.GetContacts(model.Skip, model.Take);
+
+                object[] contactsList = new object[contacts.Count];
+                for (var c = 0; c < contacts.Count; c++)
+                {
+                    contactsList[c] = new { name = contacts[c].Name, email = contacts[c].Email, phone = contacts[c].Phone };
+                }
+
+                response = Request.CreateResponse(HttpStatusCode.OK, contactsList);
             }
             catch (Exception ex)
             {

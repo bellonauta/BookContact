@@ -61,9 +61,10 @@ namespace BookContactControl.Business.Services
             return contact;
         }
 
-        public List<Contact> GetByRange(int skip, int take)
+        public List<Contact> GetContacts(int skip, int take)     
         {
-            throw new NotImplementedException();
+            var contacts = _repository.GetContacts(skip, take);
+            return contacts;
         }
 
         public void Register(string email, string name, string phone)
