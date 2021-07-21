@@ -21,8 +21,13 @@ namespace BookContactControl.Infraestructure.Repositories
             return _context.Contacts.Where(x => x.Email == email.ToLower().Trim().Replace(" ", "")).FirstOrDefault();
         }
 
-        public List<Contact> GetContacts(int skip, int take) { 
-            return _context.Contacts.OrderBy(x => x.Email).Skip(skip).Take(take).ToList();
+        public List<Contact> GetContacts(string order, int skip, int take) {
+            if (order == "" || order == "pk")
+                return _context.Contacts.OrderBy(x => x.Email).Skip(skip).Take(take).ToList();
+            else if (order == "asc")
+                return _context.Contacts.OrderBy(x => x.Name).Skip(skip).Take(take).ToList();
+            else
+                return _context.Contacts.OrderByDescending(x => x.Name).Skip(skip).Take(take).ToList();
         }
 
         public void Create(Contact contact)

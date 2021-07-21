@@ -13,5 +13,7 @@ namespace BookContactControl.Api.Models
 
         public int Skip { get; set; }
         public int Take { get; set; }
+
+        public String Order { get; set; }
     }
 }

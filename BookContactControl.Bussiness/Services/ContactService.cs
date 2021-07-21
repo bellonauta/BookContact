@@ -61,9 +61,9 @@ namespace BookContactControl.Business.Services
             return contact;
         }
 
-        public List<Contact> GetContacts(int skip, int take)     
+        public List<Contact> GetContacts(string order, int skip, int take)     
         {
-            var contacts = _repository.GetContacts(skip, take);
+            var contacts = _repository.GetContacts(order, skip, take);
             return contacts;
         }
 

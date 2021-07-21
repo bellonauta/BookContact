@@ -35,7 +35,7 @@ namespace BookContactControl.Api.Controllers
             }
             catch (Exception ex)
             {
-                response = Request.CreateResponse(HttpStatusCode.BadRequest, "*** " + ex.Message);
+                response = Request.CreateResponse(HttpStatusCode.BadRequest, ex.Message);
             }
 
             var tsc = new TaskCompletionSource<HttpResponseMessage>();
@@ -46,7 +46,7 @@ namespace BookContactControl.Api.Controllers
         // api/contact/update - Post(Update) (Content-Type: application/json)
         [Route("update")]
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public Task<HttpResponseMessage> Update(RegisterContactModel model)
         {
             HttpResponseMessage response = new HttpResponseMessage();
@@ -77,7 +77,7 @@ namespace BookContactControl.Api.Controllers
 
             try
             {
-                var contacts =  _service.GetContacts(model.Skip, model.Take);
+                var contacts =  _service.GetContacts(model.Order, model.Skip, model.Take);
 
                 object[] contactsList = new object[contacts.Count];
                 for (var c = 0; c < contacts.Count; c++)

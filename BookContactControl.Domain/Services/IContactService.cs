@@ -12,6 +12,6 @@ namespace BookContactControl.Domain.Services
 
         Contact AuthenticateConsumer(string id);
 
-        List<Contact> GetContacts(int skip, int take);
+        List<Contact> GetContacts(string order, int skip, int take);
     }
 }
