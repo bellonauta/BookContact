@@ -23,14 +23,17 @@ https://www.youtube.com/watch?v=9rHQfspuAFM&list=PLTMuY7ptzFISS-rK8alGtUKqco4vrg
 ---
 ## Consumo
 - Obter token de autorização de consumo:
+<pre>
 	Request tipo "POST" para "url_da_api/security/token".
 	Headers: 
 		Content-type : application/x-www-form-urlencoded.
 	Parâmetros:
 		grant_type : "password";
 		username   : "seu_username_recebido" (No momento, coloque um e-mail qualquer).
+</pre>
 
 - Inclusão de contato: 
+<pre>
 	Request tipo "PUT" para "url_da_api/insert";
 	Headers:
 		Authorization : "bearer access_token_recebido";		
@@ -40,8 +43,10 @@ https://www.youtube.com/watch?v=9rHQfspuAFM&list=PLTMuY7ptzFISS-rK8alGtUKqco4vrg
 	    Email : Conta de e-mail do contato (Key);
 		Nome  : Nome do contato;
 		Phone : Número do celular do contato;
+</pre>
 
 - Alteração de contato: 
+<pre>
 	Request tipo "POST" para "url_da_api/update".
 	Headers:
 		Authorization : "bearer access_token_recebido";		
@@ -51,8 +56,10 @@ https://www.youtube.com/watch?v=9rHQfspuAFM&list=PLTMuY7ptzFISS-rK8alGtUKqco4vrg
 	    Email : Conta de e-mail do contato (Key);
 		Nome  : Nome do contato;
 		Phone : Número do celular do contato.
+</pre>
 
 - Lista de contatos: 
+<pre>
 	Request tipo "POST" para "url_da_api/list"
 	Headers:
 		Authorization : "bearer access_token_recebido";		
@@ -64,6 +71,7 @@ https://www.youtube.com/watch?v=9rHQfspuAFM&list=PLTMuY7ptzFISS-rK8alGtUKqco4vrg
 		Order : "pk" = Ordem ascendente das contas de e-mails dos contatos(Default);
 		        "asc" = Ordem ascendente dos nomes dos contatos;
 				"desc" = Ordem descendente dos nomes dos contatos.
+</pre>
 
 ---
 ## ToDo
