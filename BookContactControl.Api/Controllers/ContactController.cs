@@ -24,6 +24,7 @@ namespace BookContactControl.Api.Controllers
         // api/contact/insert - Put(Insert) (Content-Type: application/json)
         [Route("insert")]
         [HttpPut]
+        [Authorize]
         public Task<HttpResponseMessage> Register(RegisterContactModel model) 
         {
             HttpResponseMessage response = new HttpResponseMessage();
@@ -46,7 +47,7 @@ namespace BookContactControl.Api.Controllers
         // api/contact/update - Post(Update) (Content-Type: application/json)
         [Route("update")]
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         public Task<HttpResponseMessage> Update(RegisterContactModel model)
         {
             HttpResponseMessage response = new HttpResponseMessage();
@@ -70,7 +71,7 @@ namespace BookContactControl.Api.Controllers
         // api/contact/list - Get(List) (Content-Type: application/json)
         [Route("list")]
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         public Task<HttpResponseMessage> GetContacts(RegisterContactModel model)
         {
             HttpResponseMessage response = new HttpResponseMessage();

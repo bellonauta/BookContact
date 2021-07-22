@@ -61,10 +61,10 @@ namespace BookContactControl.Api
             OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
             {
                 AllowInsecureHttp = true,
-                TokenEndpointPath = new PathString("/api/security/token"),
+                TokenEndpointPath = new PathString("/api/v1/contact/security/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromHours(2),
                 Provider = new AuthorizationServerProvider(service)
-            };
+            };           
 
             // Token Generation
             app.UseOAuthAuthorizationServer(OAuthServerOptions);
