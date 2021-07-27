@@ -117,6 +117,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Helpers\UnityResolver.cs" />
     <Compile Include="Models\ChangeInformationModel.cs" />
+    <Compile Include="Models\ListContactsModel.cs" />
     <Compile Include="Models\RegisterContactModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\AuthorizationServerProvider.cs" />

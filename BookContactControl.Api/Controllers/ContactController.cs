@@ -48,7 +48,7 @@ namespace BookContactControl.Api.Controllers
         [Route("update")]
         [HttpPost]
         [Authorize]
-        public Task<HttpResponseMessage> Update(RegisterContactModel model)
+        public Task<HttpResponseMessage> Update(ChangeInformationModel model)
         {
             HttpResponseMessage response = new HttpResponseMessage();
 
@@ -72,7 +72,7 @@ namespace BookContactControl.Api.Controllers
         [Route("list")]
         [HttpPost]
         [Authorize]
-        public Task<HttpResponseMessage> GetContacts(RegisterContactModel model)
+        public Task<HttpResponseMessage> GetContacts(ListContactsModel model)
         {
             HttpResponseMessage response = new HttpResponseMessage();
 
